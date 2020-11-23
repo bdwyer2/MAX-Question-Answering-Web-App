@@ -130,7 +130,7 @@ $ pip install -r requirements.txt
 
 You then start the web app by running:
 
-``` 
+```
 $ python app.py
 ```
 
