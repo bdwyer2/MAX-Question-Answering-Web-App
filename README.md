@@ -130,7 +130,7 @@ $ pip install -r requirements.txt
 
 You then start the web app by running:
 
-```
+``` 
 $ python app.py
 ```
 
@@ -141,7 +141,7 @@ You can then access the web app at: [`http://localhost:8000`](http://localhost:8
 If you want to use a different port or are running the model API at a different location you can change them with command-line options:
 
 ```
-$ python app.py --port=[new port] --model=[endpoint url including protocol and port]
+$ python app.py --port=[new port] --ml-endpoint=[endpoint url including protocol and port]
 ```
 
 #### Instructions for Docker (Optional)

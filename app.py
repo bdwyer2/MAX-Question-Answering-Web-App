@@ -21,7 +21,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--port", default=8000)
-parser.add_argument("--model", default="http://0.0.0.0:5000/model/predict")
+parser.add_argument("--ml-endpoint", default="http://0.0.0.0:5000/model/predict")
 args = parser.parse_args()
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ states = {
 
 textbook_data = None
 titles = None
-model_endpoint = args.model
+model_endpoint = args.ml_endpoint
 
 
 def flattened_titles(data):
