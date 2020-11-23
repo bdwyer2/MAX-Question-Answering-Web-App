@@ -17,6 +17,12 @@
 from flask import Flask, render_template, request, jsonify
 from chatbot import get_opening_message, get_choice, get_topic, match, narrow, ask, end
 import json
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--port", default=8000)
+parser.add_argument("--model", default="http://0.0.0.0:5000/model/predict")
+args = parser.parse_args()
 
 app = Flask(__name__)
 
@@ -31,7 +37,7 @@ states = {
 
 textbook_data = None
 titles = None
-model_endpoint = "http://0.0.0.0:5000/model/predict"
+model_endpoint = args.model
 
 
 def flattened_titles(data):
@@ -99,4 +105,4 @@ if __name__ == "__main__":
     # Flatten the titles
     titles = flattened_titles(textbook_data)
     # Start the app
-    app.run(port=8000, host="0.0.0.0", debug=False)
+    app.run(port=args.port, host="0.0.0.0", debug=False)
