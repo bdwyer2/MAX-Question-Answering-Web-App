@@ -44,6 +44,6 @@ spec:
       containers:
       - name: max-question-answering-web-app
         image: quay.io/codait/max-question-answering-web-app:latest
-        command: ["python", "app.py", "--model=http://max-question-answering:5000"]
+        command: ["python", "app.py", "--ml-endpoint=http://max-question-answering:5000"]
         ports:
         - containerPort: 8000
