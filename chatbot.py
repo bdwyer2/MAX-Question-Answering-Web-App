@@ -16,6 +16,7 @@
 
 import requests
 import random
+import sys
 from similarity.metric_lcs import MetricLCS
 
 
@@ -90,13 +91,17 @@ def match(model_endpoint, topic, titles):
 def ask(model_endpoint, question, titles):
     json_data = {"paragraphs": [{"context": titles[choice][1],
                                  "questions": [question]}]}
-    print('*** ENDPOINT ***')
-    print(model_endpoint)
+    print('*** ENDPOINT ***', file=sys.stderr)
+    print(model_endpoint, file=sys.stderr)
+    print('*** JSON_IN ***', file=sys.stderr)
+    print(json_data, file=sys.stderr)  
     r = requests.post(url=model_endpoint, json=json_data)
-    print('*** RESPONSE ***')
-    print(r)
-    print('*** RESPONSE text ***')
-    print(r.text)    
+    print('*** RESPONSE ***', file=sys.stderr)
+    print(r, file=sys.stderr)
+    print('*** RESPONSE text ***', file=sys.stderr)
+    print(r.text, file=sys.stderr)
+    sys.stderr.flush()
+    
     r = r.json()
     return r["predictions"][0][0] + "\n\nTo stop this session, type 'Stop'. \n\
               If you are curious about another topic, reply with the topic.", 1, {}
