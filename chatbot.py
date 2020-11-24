@@ -90,7 +90,14 @@ def match(model_endpoint, topic, titles):
 def ask(model_endpoint, question, titles):
     json_data = {"paragraphs": [{"context": titles[choice][1],
                                  "questions": [question]}]}
-    r = requests.post(url=model_endpoint, json=json_data).json()
+    print('*** ENDPOINT ***')
+    print(model_endpoint)
+    r = requests.post(url=model_endpoint, json=json_data)
+    print('*** RESPONSE ***')
+    print(r)
+    print('*** RESPONSE text ***')
+    print(r.text)    
+    r = r.json()
     return r["predictions"][0][0] + "\n\nTo stop this session, type 'Stop'. \n\
               If you are curious about another topic, reply with the topic.", 1, {}
 
