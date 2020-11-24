@@ -21,7 +21,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--port", default=8000)
-parser.add_argument("--ml-endpoint", default="http://0.0.0.0:5000/model/predict")
+parser.add_argument("--ml-endpoint", default="http://localhost:5000/model/predict")
 args = parser.parse_args()
 
 app = Flask(__name__)
