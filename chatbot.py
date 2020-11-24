@@ -92,6 +92,8 @@ def ask(model_endpoint, question, titles):
                                  "questions": [question]}]}
     print('*** ENDPOINT ***')
     print(model_endpoint)
+    print('*** JSON_IN ***')
+    print(json_data)  
     r = requests.post(url=model_endpoint, json=json_data)
     print('*** RESPONSE ***')
     print(r)
